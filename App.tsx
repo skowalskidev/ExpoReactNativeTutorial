@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, ActivityIndicator, FlatList } from 'react-native';
+import { View, Text, ActivityIndicator, FlatList, Platform } from 'react-native';
 import Cafe from './src/components/Cafe';
 import PizzaTranslator from './src/components/PizzaTranslator';
 import { getMoviesFromApiAsync } from './src/utils/api';
+import BigButton from './src/components/BigButton.native';
 
 type Movie = {
     id: string;
@@ -33,13 +34,13 @@ const App = () => {
     return (
         <>
             <View style={{
-                paddingTop: 40,
+                paddingTop: Platform.OS === 'ios' ? 40 : 100,
                 // paddingBottom: 40,
                 paddingLeft: 10,
                 paddingRight: 10,
                 gap: 20,
             }}>
-                <Text style={{ textAlign: 'center' }}>Welcome to the cafe!</Text>
+                <Text style={{ textAlign: 'center' }}>Welcome to the {Platform.OS} {Platform.Version} cafe!</Text>
                 <Cafe />
                 <PizzaTranslator />
                 {isLoading ? (
@@ -49,13 +50,14 @@ const App = () => {
                         data={data}
                         keyExtractor={({ id }) => id}
                         renderItem={({ item }) => (
-                            <Text>
+                            <Text style={{ color: '#475569' }}>
                                 {item.title}, {item.releaseYear}
                             </Text>
                         )}
                     />
                 )}
             </View>
+            <BigButton />
             {/* <FlatListBasics /> */}
             {/* <SectionListBasics /> */}
         </>
