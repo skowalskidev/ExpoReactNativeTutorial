@@ -32,7 +32,7 @@ const App = () => {
     }, []);
 
     return (
-        <>
+        <View style={styles.container}>
             <View style={styles.view}>
                 <Text style={styles.hero}>Welcome to the {Platform.OS} {Platform.Version} cafe!</Text>
                 <Cafe />
@@ -52,13 +52,17 @@ const App = () => {
                 )}
             </View>
             <BigButton />
-            {/* <FlatListBasics /> */}
-            {/* <SectionListBasics /> */}
-        </>
+        </View>
     );
 };
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'space-between',
+        paddingHorizontal: 8,
+        paddingVertical: 16,
+    },
     view: {
         paddingTop: Platform.OS === 'ios' ? 40 : 100,
         // paddingBottom: 40,
