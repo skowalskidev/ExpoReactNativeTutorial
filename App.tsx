@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, ActivityIndicator, FlatList, Platform } from 'react-native';
+import { StyleSheet, View, Text, ActivityIndicator, FlatList, Platform } from 'react-native';
 import Cafe from './src/components/Cafe';
 import PizzaTranslator from './src/components/PizzaTranslator';
 import { getMoviesFromApiAsync } from './src/utils/api';
@@ -33,14 +33,8 @@ const App = () => {
 
     return (
         <>
-            <View style={{
-                paddingTop: Platform.OS === 'ios' ? 40 : 100,
-                // paddingBottom: 40,
-                paddingLeft: 10,
-                paddingRight: 10,
-                gap: 20,
-            }}>
-                <Text style={{ textAlign: 'center' }}>Welcome to the {Platform.OS} {Platform.Version} cafe!</Text>
+            <View style={styles.view}>
+                <Text style={styles.hero}>Welcome to the {Platform.OS} {Platform.Version} cafe!</Text>
                 <Cafe />
                 <PizzaTranslator />
                 {isLoading ? (
@@ -50,7 +44,7 @@ const App = () => {
                         data={data}
                         keyExtractor={({ id }) => id}
                         renderItem={({ item }) => (
-                            <Text style={{ color: '#475569' }}>
+                            <Text style={styles.movies}>
                                 {item.title}, {item.releaseYear}
                             </Text>
                         )}
@@ -63,5 +57,21 @@ const App = () => {
         </>
     );
 };
+
+const styles = StyleSheet.create({
+    view: {
+        paddingTop: Platform.OS === 'ios' ? 40 : 100,
+        // paddingBottom: 40,
+        paddingLeft: 10,
+        paddingRight: 10,
+        gap: 20,
+    },
+    hero: {
+        textAlign: 'center'
+    },
+    movies: {
+        color: '#475569'
+    }
+});
 
 export default App;
