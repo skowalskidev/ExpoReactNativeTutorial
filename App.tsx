@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, Text, ActivityIndicator, FlatList, Platform } from 'react-native';
+import { Image, StyleSheet, View, Text, ActivityIndicator, FlatList, Platform, SafeAreaView } from 'react-native';
 import Cafe from './src/components/Cafe';
 import PizzaTranslator from './src/components/PizzaTranslator';
 import { getMoviesFromApiAsync } from './src/utils/api';
@@ -32,9 +32,12 @@ const App = () => {
     }, []);
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <View style={styles.view}>
                 <Text style={styles.hero}>Welcome to the {Platform.OS} {Platform.Version} cafe!</Text>
+                {/* <Image style={styles.image} source={require('./assets/icon.png')} /> */}
+                {/* <Image source={{ uri: 'https://reactjs.org/logo-og.png' }}
+                    style={{ width: 40, height: 40 }} /> */}
                 <Cafe />
                 <PizzaTranslator />
                 {isLoading ? (
@@ -52,7 +55,7 @@ const App = () => {
                 )}
             </View>
             <BigButton />
-        </View>
+        </SafeAreaView>
     );
 };
 
@@ -60,8 +63,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'space-between',
-        paddingHorizontal: 8,
-        paddingVertical: 16,
+        backgroundColor: 'black',
     },
     view: {
         paddingTop: Platform.OS === 'ios' ? 40 : 100,
@@ -71,10 +73,15 @@ const styles = StyleSheet.create({
         gap: 20,
     },
     hero: {
-        textAlign: 'center'
+        textAlign: 'center',
+        color: 'white',
     },
     movies: {
         color: '#475569'
+    },
+    image: {
+        width: 50,
+        height: 50,
     }
 });
 

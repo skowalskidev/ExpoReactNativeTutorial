@@ -1,9 +1,9 @@
 import React from 'react';
-import { TouchableOpacity, Text, Platform } from 'react-native';
+import { TouchableHighlight, Text, Platform } from 'react-native';
 
 const BigButton = () => {
     return (
-        <TouchableOpacity
+        <TouchableHighlight
             style={{
                 backgroundColor: Platform.OS === 'ios' ? '#007AFF' : '#3F51B5',
                 borderRadius: 8,
@@ -13,7 +13,7 @@ const BigButton = () => {
             }}
             onPress={() => console.log('ios Button pressed')}>
             <Text style={{ color: 'white', fontSize: 18 }}>Press Me</Text>
-        </TouchableOpacity>
+        </TouchableHighlight>
     );
 };
 
