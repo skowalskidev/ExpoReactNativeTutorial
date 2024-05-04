@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Image, StyleSheet, View, Text, ActivityIndicator, FlatList, Platform, SafeAreaView, TouchableHighlight } from 'react-native';
 import { getMoviesFromApiAsync } from '@/utils/api';
+import { FadeInView } from '@/components/FadeInView';
 
 type Movie = {
     id: string;
@@ -33,8 +34,10 @@ const Profile = ({ navigation, route }) => {
             <View style={styles.view}>
                 <Text>This is {route.params.name}'s profile</Text>
                 <Image style={styles.image} source={require('../../assets/icon.png')} />
-                <Image source={{ uri: 'https://reactjs.org/logo-og.png' }}
-                    style={{ width: 40, height: 40 }} />
+                <FadeInView style={{}}>
+                    <Image source={{ uri: 'https://reactjs.org/logo-og.png' }}
+                        style={{ width: 40, height: 40 }} />
+                </FadeInView>
                 {isLoading ? (
                     <ActivityIndicator />
                 ) : (
