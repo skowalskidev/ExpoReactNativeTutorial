@@ -24,7 +24,6 @@ const PizzaTranslator = () => {
 
 const styles = StyleSheet.create({
     input: {
-        color: 'white',
         height: 40,
     },
     text: {

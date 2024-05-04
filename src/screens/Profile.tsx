@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Image, StyleSheet, View, Text, ActivityIndicator, FlatList, Platform, SafeAreaView } from 'react-native';
-import BigButton from '@/components/BigButton.native';
-import Cafe from '@/components/Cafe';
-import PizzaTranslator from '@/components/PizzaTranslator';
+import { Image, StyleSheet, View, Text, ActivityIndicator, FlatList, Platform, SafeAreaView, TouchableHighlight } from 'react-native';
 import { getMoviesFromApiAsync } from '@/utils/api';
 
 type Movie = {
@@ -52,7 +49,17 @@ const Profile = ({ navigation, route }) => {
                     />
                 )}
             </View>
-            <BigButton />
+            <TouchableHighlight
+                style={{
+                    backgroundColor: Platform.OS === 'ios' ? '#007AFF' : '#3F51B5',
+                    borderRadius: 8,
+                    paddingVertical: 12,
+                    paddingHorizontal: 24,
+                    alignItems: 'center',
+                }}
+                onPress={() => navigation.goBack()}>
+                <Text style={{ color: 'white', fontSize: 18 }}>Back</Text>
+            </TouchableHighlight>
         </SafeAreaView>
     );
 };
@@ -61,14 +68,12 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'space-between',
-        backgroundColor: 'black',
     },
     view: {
-        paddingTop: Platform.OS === 'ios' ? 40 : 100,
         // paddingBottom: 40,
         paddingLeft: 10,
         paddingRight: 10,
-        gap: 20,
+        gap: Platform.OS === 'ios' ? 20 : 40,
     },
     movies: {
         color: '#475569'

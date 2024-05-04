@@ -26,18 +26,14 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'space-between',
-        backgroundColor: 'black',
     },
     view: {
-        paddingTop: Platform.OS === 'ios' ? 40 : 100,
-        // paddingBottom: 40,
         paddingLeft: 10,
         paddingRight: 10,
         gap: 20,
     },
     hero: {
         textAlign: 'center',
-        color: 'white',
     },
 });
 

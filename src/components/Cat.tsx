@@ -16,7 +16,7 @@ export const Cat = (props: Props) => {
                 }}
                 style={styles.image}
             />
-            <Text style={styles.text}>
+            <Text>
                 I am {props.name}, and I am {isHungry ? 'hungry' : 'full'}!
             </Text>
             <Button
@@ -31,9 +31,6 @@ export const Cat = (props: Props) => {
 };
 
 const styles = StyleSheet.create({
-    text: {
-        color: 'white',
-    },
     image: {
         width: 40, height: 40,
     },
