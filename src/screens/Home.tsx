@@ -29,6 +29,12 @@ const Home = ({ navigation }) => {
                     navigation.navigate('Box')
                 }
             />
+            <Button
+                title="Go to Theme"
+                onPress={() =>
+                    navigation.navigate('ThemeModule')
+                }
+            />
         </SafeAreaView>
     );
 };
