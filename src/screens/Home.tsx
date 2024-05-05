@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, View, Text, Platform, SafeAreaView, Button } from 'react-native';
-import BigButton from '@/components/BigButton.native';
 import Cafe from '@/components/Cafe';
 import PizzaTranslator from '@/components/PizzaTranslator';
 
@@ -16,6 +15,18 @@ const Home = ({ navigation }) => {
                 title="Go to Jane's profile"
                 onPress={() =>
                     navigation.navigate('Profile', { name: 'Jane' })
+                }
+            />
+            <Button
+                title="Go to Gallery"
+                onPress={() =>
+                    navigation.navigate('Gallery')
+                }
+            />
+            <Button
+                title="Go to Box"
+                onPress={() =>
+                    navigation.navigate('Box')
                 }
             />
         </SafeAreaView>
