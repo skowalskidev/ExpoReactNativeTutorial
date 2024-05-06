@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Gallery from '@/screens/Gallery';
 import Box from '@/screens/Box';
 import ThemeModule from '@/screens/ThemeModule';
+import DirectManipulation from '@/screens/DirectManipulation';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,6 +23,7 @@ const App = () => {
                 <Stack.Screen name="Gallery" component={Gallery} />
                 <Stack.Screen name="Box" component={Box} />
                 <Stack.Screen name="ThemeModule" component={ThemeModule} />
+                <Stack.Screen name="DirectManipulation" component={DirectManipulation} />
             </Stack.Navigator>
         </NavigationContainer>
     );

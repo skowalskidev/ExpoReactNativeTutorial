@@ -35,6 +35,12 @@ const Home = ({ navigation }) => {
                     navigation.navigate('ThemeModule')
                 }
             />
+            <Button
+                title="Go to DirectManipulation"
+                onPress={() =>
+                    navigation.navigate('DirectManipulation')
+                }
+            />
         </SafeAreaView>
     );
 };
